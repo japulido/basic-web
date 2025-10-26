@@ -3,18 +3,31 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modal Example</title>
+    <title>Perro en movimiento</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
     <main>
         <h1>Perro en movimiento</h1>
         <p>Disfruta de esta foto gratuita mientras el perrito recorre la pantalla una y otra vez.</p>
-        <div class="dog-wrapper" aria-hidden="true">
-            <img
-                src="https://images.pexels.com/photos/4587995/pexels-photo-4587995.jpeg?auto=compress&cs=tinysrgb&h=750"
-                alt="Perro feliz corriendo por la hierba"
-            />
+        <div class="dog-track" aria-hidden="true">
+            <div class="dog-wrapper">
+                <img
+                    src="https://images.pexels.com/photos/4587995/pexels-photo-4587995.jpeg?auto=compress&cs=tinysrgb&h=750"
+                    alt="Perro feliz corriendo por la hierba"
+                />
+            </div>
+        </div>
+        <button id="open-modal" type="button">Ver créditos de la foto</button>
+    </main>
+
+    <div id="modal-overlay" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal">
+            <button id="close-modal" class="close-button" type="button" aria-label="Cerrar">×</button>
+            <h2>Créditos</h2>
+            <p>
+                Foto de <a href="https://www.pexels.com/es-es/foto/perro-blanco-y-marron-a-traves-del-campo-4587995/" target="_blank" rel="noopener">Samson Katt</a> en Pexels.
+            </p>
         </div>
     </div>
 
