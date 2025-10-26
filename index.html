@@ -4,76 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modal Example</title>
-    <style>
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #000;
-            font-family: Arial, sans-serif;
-        }
-
-        button#open-modal {
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            color: #000;
-            background-color: #fff;
-            border: none;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        button#open-modal:focus,
-        button#open-modal:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.2);
-            outline: none;
-        }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal {
-            background: #fff;
-            color: #000;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            position: relative;
-            min-width: 200px;
-            text-align: center;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            background: none;
-            border: none;
-            font-size: 1.25rem;
-            cursor: pointer;
-            line-height: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
     <button id="open-modal">Open Modal</button>
@@ -85,33 +16,6 @@
         </div>
     </div>
 
-    <script>
-        const openButton = document.getElementById('open-modal');
-        const closeButton = document.getElementById('close-modal');
-        const modalOverlay = document.getElementById('modal-overlay');
-
-        openButton.addEventListener('click', () => {
-            modalOverlay.classList.add('active');
-            modalOverlay.setAttribute('aria-hidden', 'false');
-        });
-
-        const closeModal = () => {
-            modalOverlay.classList.remove('active');
-            modalOverlay.setAttribute('aria-hidden', 'true');
-        };
-
-        closeButton.addEventListener('click', closeModal);
-        modalOverlay.addEventListener('click', (event) => {
-            if (event.target === modalOverlay) {
-                closeModal();
-            }
-        });
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape' && modalOverlay.classList.contains('active')) {
-                closeModal();
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
